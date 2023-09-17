@@ -7,7 +7,7 @@ class Usuario extends CI_Controller {
 	//empieza con metodo
 	public function index()
 	{
-		$data['msg']=$this->uri->segment(3);  //recupera el numero en la posicion 3 para dar mensajes index.php/usuarios/index/1(este es el numero)
+		$data['mensaje']=$this->uri->segment(3);  //recupera el numero en la posicion 3 para dar mensajes index.php/usuarios/index/1(este es el numero)
 
 		if($this->session->userdata('login'))
 		{
