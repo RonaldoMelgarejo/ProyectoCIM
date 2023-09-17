@@ -23,10 +23,10 @@ class Usuario extends CI_Controller {
 	
 	public function validarusuario()
 	{
-		$login=$_POST['login'];
+		$email=$_POST['email'];
 		$password=md5($_POST['password']);
 
-		$consulta=$this->usuario_model->validar($login,$password);
+		$consulta=$this->usuario_model->validar($email,$password);
 
 		if($consulta->num_rows()>0)  //validamos usuario
 		{
@@ -34,7 +34,7 @@ class Usuario extends CI_Controller {
 			{
 				//creamos variables de session
 				$this->session->set_userdata('idusuario',$row->idUsuarios); //creamos variable 'idusuario' y lo rescatamos de $row->idusuario bd
-				$this->session->set_userdata('login',$row->login);
+				$this->session->set_userdata('email',$row->email);
 				$this->session->set_userdata('tipo',$row->tipo);
 				redirect('usuario/panel','refresh');
 			}
@@ -43,6 +43,10 @@ class Usuario extends CI_Controller {
 		{
 			redirect('usuario/index/1','refresh'); //cargamos el login en caso contrario
 		}
+	}
+
+	public function register(){
+		$this->load->view('registerform'); //cargar vista loginform y se envia $data que debe ser dado el formato en la vista
 	}
 
 	public function panel()

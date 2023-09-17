@@ -10,8 +10,15 @@ class Usuario_model extends CI_Model {
 	{
 		$this->db->select('*');
 		$this->db->from('usuarios');
-		$this->db->where('login',$login);
+		//$this->db->where('login',$login);
+		//$this->db->where('password',$password);
+
+		$this->db->where('nombre',$nombre);
+		$this->db->where('primerApellido',$primerApellido);
+		$this->db->where('segundoApellido',$segundoApellido);
+		$this->db->where('email',$email);
 		$this->db->where('password',$password);
+		$this->db->where('fechaRegistro',$fechaRegistro);
 		return $this->db->get();  //manda los datos a un controlador y se lo llamara desde estudiante.php
 	}
 	

@@ -90,6 +90,30 @@
                         </div>
                         <h2 class="mt-3 text-center">Iniciar sesión</h2>
                         <p class="text-center">Ingrese su dirección de correo electrónico y contraseña para acceder al panel de administración.</p>
+
+                        <?php
+                            switch($mensaje){
+                                case '1':
+                                    $mensaje="Error de ingreso";
+                                    break;
+                                case '2':
+                                    $mensaje="Acceso no valido";
+                                    break;
+                                case '3':
+                                    $mensaje="Gracias por usar el sistema";
+                                    break;
+                                case 'default':
+                                    $mensaje="ingrese sus datos";
+                                    break;
+                            }
+                        ?>
+
+                        <p><?php echo $mensaje; ?></p>
+
+                        <?php
+                            echo form_open_multipart('usuario/validarusuario');
+                        ?>
+
                         <form class="mt-4">
                             <div class="row">
                                 <div class="col-lg-12">
@@ -110,8 +134,13 @@
                                     <button type="submit" class="btn w-100 btn-dark">Iniciar sesión</button>
                                 </div>
                                 <div class="col-lg-12 text-center mt-5">
-                                    ¿No tienes una cuenta? <a href="#" class="text-danger">Registrarse</a>
+                                    ¿No tienes una cuenta? <a href="<?php echo base_url('index.php/usuario/register'); ?>" class="text-danger">Registrarse</a>
                                 </div>
+
+
+                                <?php
+                                    echo form_close();
+                                ?>
                             </div>
                         </form>
                     </div>
