@@ -9,10 +9,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>/assets/images/favicon.png">
     <title>Freedash Template - The Ultimate Multipurpose admin template</title>
     <!-- Custom CSS -->
-    <link href="../dist/css/style.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>/dist/css/style.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -79,17 +79,17 @@
         <!-- Login box.scss -->
         <!-- ============================================================== -->
         <div class="auth-wrapper d-flex no-block justify-content-center align-items-center position-relative"
-            style="background:url(../assets/images/big/auth-bg.jpg) no-repeat center center;">
+            style="background:url(<?php echo base_url(); ?>/assets/images/big/auth-bg.jpg) no-repeat center center;">
             <div class="auth-box row">
-                <div class="col-lg-7 col-md-5 modal-bg-img" style="background-image: url(../assets/images/big/3.jpg);">
+                <div class="col-lg-7 col-md-5 modal-bg-img" style="background-image: url(<?php echo base_url(); ?>/assets/images/big/3.1.jpg);">
                 </div>
                 <div class="col-lg-5 col-md-7 bg-white">
                     <div class="p-3">
                         <div class="text-center">
-                            <img src="../assets/images/big/icon.png" alt="wrapkit">
+                            <img src="<?php echo base_url(); ?>/assets/images/big/icon.png" alt="wrapkit">
                         </div>
-                        <h2 class="mt-3 text-center">Sign In</h2>
-                        <p class="text-center">Enter your email address and password to access admin panel.</p>
+                        <h2 class="mt-3 text-center">Iniciar sesión</h2>
+                        <p class="text-center">Ingrese su dirección de correo electrónico y contraseña para acceder al panel de administración.</p>
                         <form class="mt-4">
                             <div class="row">
                                 <div class="col-lg-12">
@@ -101,16 +101,16 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group mb-3">
-                                        <label class="form-label text-dark" for="pwd">Password</label>
+                                        <label class="form-label text-dark" for="pwd">Contraseña</label>
                                         <input class="form-control" id="pwd" type="password"
                                             placeholder="enter your password">
                                     </div>
                                 </div>
                                 <div class="col-lg-12 text-center">
-                                    <button type="submit" class="btn w-100 btn-dark">Sign In</button>
+                                    <button type="submit" class="btn w-100 btn-dark">Iniciar sesión</button>
                                 </div>
                                 <div class="col-lg-12 text-center mt-5">
-                                    Don't have an account? <a href="#" class="text-danger">Sign Up</a>
+                                    ¿No tienes una cuenta? <a href="#" class="text-danger">Registrarse</a>
                                 </div>
                             </div>
                         </form>
@@ -125,10 +125,10 @@
     <!-- ============================================================== -->
     <!-- All Required js -->
     <!-- ============================================================== -->
-    <script src="../assets/libs/jquery/dist/jquery.min.js "></script>
+    <script src="<?php echo base_url(); ?>/assets/libs/jquery/dist/jquery.min.js "></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="../assets/libs/popper.js/dist/umd/popper.min.js "></script>
-    <script src="../assets/libs/bootstrap/dist/js/bootstrap.min.js "></script>
+    <script src="<?php echo base_url(); ?>/assets/libs/popper.js/dist/umd/popper.min.js "></script>
+    <script src="<?php echo base_url(); ?>/assets/libs/bootstrap/dist/js/bootstrap.min.js "></script>
     <!-- ============================================================== -->
     <!-- This page plugin js -->
     <!-- ============================================================== -->
