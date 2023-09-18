@@ -6,7 +6,7 @@
 -->
 
 
-<!-- ============================================================== -->
+            <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center text-muted">
@@ -46,6 +46,25 @@
     <script src="<?php echo base_url(); ?>/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js"></script>
     <script src="<?php echo base_url(); ?>/assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js"></script>
     <script src="<?php echo base_url(); ?>/dist/js/pages/dashboards/dashboard1.min.js"></script>
+
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="<?php echo base_url(); ?>/assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="<?php echo base_url(); ?>/assets/extra-libs/sparkline/sparkline.js"></script>
+    <!--Wave Effects -->
+    <!-- themejs -->
+    <script src="<?php echo base_url(); ?>/assets/extra-libs/knob/jquery.knob.min.js"></script>
+    <script>
+        $(function () {
+            $('[data-plugin="knob"]').knob();
+        });
+    </script>
+
+    <!--This page plugins -->
+    <script src="<?php echo base_url(); ?>/assets/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/extra-libs/datatables.net-bs4/js/dataTables.responsive.min.js"></script>
+    <script src="<?php echo base_url(); ?>/dist/js/pages/datatable/datatable-basic.init.js"></script>
 </body>
 
 </html>

@@ -65,6 +65,17 @@ class Usuario extends CI_Controller {
 		}
 	}
 
+	//Prueba para index Tables
+	public function paneltables(){
+		$this->load->view('inc_head'); //cargar cabecera
+		$this->load->view('inc_navbar'); //cargar barra lateral
+		$this->load->view('inc_sidebar'); //cargar nav
+		$this->load->view('tables'); //cargar la pagina
+		$this->load->view('inc_footer'); //cargar pie
+
+	}
+
+
 	public function logout()
 	{
 		$this->session->sess_destroy();
