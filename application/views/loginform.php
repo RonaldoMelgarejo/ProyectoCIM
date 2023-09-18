@@ -20,47 +20,6 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<!--
-<body>
-
-    <?php
-        switch($mensaje){
-            case '1':
-                $mensaje="Error de ingreso";
-                break;
-            case '2':
-                $mensaje="Acceso no valido";
-                break;
-            case '3':
-                $mensaje="Gracias por usar el sistema";
-                break;
-            case 'default':
-                $mensaje="ingrese sus datos";
-                break;
-        }
-    ?>
-
-    <p><?php echo $mensaje; ?></p>
-
-    <?php
-        echo form_open_multipart('usuario/validarusuario');
-    ?>
-
-    <div>
-        <input type="text" name="login" placeholder="login">
-        <input type="password" name="password" placeholder="password">
-        <button type="submit">Ingresar</button>
-    </div>
-
-    <?php
-        echo form_close();
-    ?>
-
-
-    
-</body>
-    -->
-
     <body>
     <div class="main-wrapper">
         <!-- ============================================================== -->
@@ -118,16 +77,16 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group mb-3">
-                                        <label class="form-label text-dark" for="uname">Username</label>
-                                        <input class="form-control" id="uname" type="text"
-                                            placeholder="enter your username">
+                                        <label class="form-label text-dark" for="email">Email</label>
+                                        <input class="form-control" name="email" id="email" type="text"
+                                            placeholder="Ingrese su Correo electrónico">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group mb-3">
                                         <label class="form-label text-dark" for="pwd">Contraseña</label>
-                                        <input class="form-control" id="pwd" type="password"
-                                            placeholder="enter your password">
+                                        <input class="form-control" name="password" id="pwd" type="password"
+                                            placeholder="Ingresa tu contraseña">
                                     </div>
                                 </div>
                                 <div class="col-lg-12 text-center">

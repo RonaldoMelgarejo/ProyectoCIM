@@ -33,7 +33,7 @@ class Usuario extends CI_Controller {
 			foreach($consulta->result() as $row)
 			{
 				//creamos variables de session
-				$this->session->set_userdata('idusuario',$row->idUsuarios); //creamos variable 'idusuario' y lo rescatamos de $row->idusuario bd
+				$this->session->set_userdata('idusuario',$row->idUsuario); //creamos variable 'idusuario' y lo rescatamos de $row->idusuario bd
 				$this->session->set_userdata('email',$row->email);
 				$this->session->set_userdata('tipo',$row->tipo);
 				redirect('usuario/panel','refresh');
@@ -47,10 +47,17 @@ class Usuario extends CI_Controller {
 
 	public function panel()
 	{
-		if($this->session->userdata('login'))
+		if($this->session->userdata('email'))
 		{
-			redirect('estudiante/index','refresh');
+			//redirect('estudiante/index','refresh');
 			//o tambie se puede crear por roles
+
+			$this->load->view('inc_head'); //cargar cabecera
+			$this->load->view('inc_navbar'); //cargar barra lateral
+			$this->load->view('inc_sidebar'); //cargar nav
+			$this->load->view('dashboard'); //cargar la pagina
+			//$this->load->view('est_lista',$data); //cargar vista est_lista y se envia $data que debe ser dado el formato en la vista
+			$this->load->view('inc_footer'); //cargar pie
 		}
 		else
 		{
