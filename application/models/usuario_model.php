@@ -21,5 +21,21 @@ class Usuario_model extends CI_Model {
 		return $this->db->insert('usuarios', $data);  // insert en ('nombreTablaBD','datos')
 	}
 
+	public function insertar_usuario($data)
+	{
+		// Insertar datos en la tabla 'usuarios'
+		$this->db->insert('usuarios', $data['usuario']);
+
+		// Obtener el último ID insertado en la tabla 'usuarios'
+		$usuario_id = $this->db->insert_id();
+
+		// Insertar datos en la tabla 'login'
+		$data['login']['usuario_id'] = $usuario_id;
+		$this->db->insert('login', $data['login']);
+
+		return true; // Éxito en la inserción
+	}
+
+
 	
 }
