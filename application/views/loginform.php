@@ -68,7 +68,7 @@
                         ?>
 
                         <p><?php echo $mensaje; ?></p>
-
+                        
                         <?php
                             echo form_open_multipart('usuario/validarusuario');
                         ?>

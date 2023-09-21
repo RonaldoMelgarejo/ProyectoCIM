@@ -51,32 +51,21 @@ class Usuario extends CI_Controller {
 	{
 		if($this->session->userdata('email'))
 		{
-			//redirect('estudiante/index','refresh');
+			redirect('monitoreo/index','refresh');
 			//o tambie se puede crear por roles
 
-			$this->load->view('inc_head'); //cargar cabecera
-			$this->load->view('inc_navbar'); //cargar barra lateral
-			$this->load->view('inc_sidebar'); //cargar nav
-			$this->load->view('dashboard'); //cargar la pagina
-			//--$this->load->view('est_lista',$data); //cargar vista est_lista y se envia $data que debe ser dado el formato en la vista
-			$this->load->view('inc_footer'); //cargar pie
+			//$this->load->view('inc_head'); //cargar cabecera
+			//$this->load->view('inc_navbar'); //cargar barra lateral
+			//$this->load->view('inc_sidebar'); //cargar nav
+			//$this->load->view('dashboard'); //cargar la pagina
+			$this->load->view('est_lista',$data); //cargar vista est_lista y se envia $data que debe ser dado el formato en la vista
+			//$this->load->view('inc_footer'); //cargar pie
 		}
 		else
 		{
 			redirect('usuario/index/2','refresh');
 		}
 	}
-
-	//Prueba para index Tables
-	public function paneltables(){
-		$this->load->view('inc_head'); //cargar cabecera
-		$this->load->view('inc_navbar'); //cargar barra lateral
-		$this->load->view('inc_sidebar'); //cargar nav
-		$this->load->view('tables'); //cargar la pagina
-		$this->load->view('inc_footer'); //cargar pie
-
-	}
-
 
 	public function logout()
 	{
@@ -87,34 +76,11 @@ class Usuario extends CI_Controller {
 
 
 	//Registro de usuarios
+
+	
 	public function register(){
 		$this->load->view('registerform'); //cargar vista loginform y se envia $data que debe ser dado el formato en la vista
 	}
-
-	public function guardarusuario()
-	{
-		// Recupera los datos del formulario
-		$data = array(
-			'nombre' => $this->input->post('name'),
-			'primerApellido' => $this->input->post('firstName'),
-			'segundoApellido' => $this->input->post('lastName'),
-			'email' => $this->input->post('email'),
-			//'password' => md5($this->input->post('password')), // Recuerda siempre encriptar las contraseñas
-		);
-
-		// Llama al modelo para insertar los datos en la base de datos
-		$this->load->model('usuario_model'); // Asegúrate de haber cargado el modelo
-		$resultado = $this->usuario_model->insertarUsuario($data);
-
-		if ($resultado) {
-			// Éxito en la inserción, redirige a una página de éxito o muestra un mensaje
-			redirect('usuario/exito_registro');
-		} else {
-			// Error en la inserción, muestra un mensaje de error
-			redirect('usuario/error_registro');
-		}
-	}
-	
 
 	public function guardarusuario2()
 	{
