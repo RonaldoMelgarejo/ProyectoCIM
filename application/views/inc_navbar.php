@@ -187,15 +187,15 @@
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-right user-dd animated flipInY">
                                 <a class="dropdown-item" href="javascript:void(0)"><i data-feather="user"
                                         class="svg-icon me-2 ms-1"></i>
-                                    My Profile</a>
+                                    Mi Perfil</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<?php echo base_url(); ?>index.php/monitoreo/setting"><i data-feather="settings"
                                         class="svg-icon me-2 ms-1"></i>
-                                    Account Setting</a>
+                                    Configuración de cuenta</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<?php echo base_url(); ?>index.php/usuario/logout"><i data-feather="power"
                                         class="svg-icon me-2 ms-1"></i>
-                                    Logout</a>
+                                    Cerrar sesión</a>
                             </div>
                         </li>
                         <!-- ============================================================== -->
