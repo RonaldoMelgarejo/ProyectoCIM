@@ -22,7 +22,7 @@ class Usuario extends CI_Controller {
 		
 	}
 	
-	public function validarusuario()
+	public function validarusuario2()
 	{
 		$login=$_POST['login'];
         $password=md5($_POST['password']);
@@ -109,5 +109,57 @@ class Usuario extends CI_Controller {
 			redirect('usuario/error_registro');
 		}
 	}
+
+	//Opcion de validar usuario
+	public function validarusuario()
+	{
+		// Carga la biblioteca de validación
+		$this->load->library('form_validation');
+
+		// Establece las reglas de validación
+		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+		$this->form_validation->set_rules('password', 'Contraseña', 'trim|required');
+
+		// Realiza la validación
+		if ($this->form_validation->run() == FALSE) {
+			// La validación falla, redirige de vuelta al formulario de inicio de sesión con mensajes de error.
+			$data['mensaje'] = 'Error de validación';
+			$this->load->view('loginform', $data);
+		} else {
+			// La validación pasa, procede a verificar las credenciales en ambas tablas.
+			$email = $this->input->post('email');
+			$password = md5($this->input->post('password'));
+
+			$this->load->model('usuario_model');
+
+			// Verifica las credenciales en la tabla 'usuarios'
+			$usuario_valido = $this->usuario_model->validarUsuario($email, $password);
+
+			if ($usuario_valido) {
+				// Obtiene el ID de usuario de la tabla 'usuarios'
+				$idUsuario = $usuario_valido->id;
+
+				// Ahora verifica las credenciales en la tabla 'login' usando el ID de usuario
+				$login_valido = $this->usuario_model->validarLogin($idUsuario, $password);
+
+				if ($login_valido) {
+					// Usuario válido, inicia sesión y redirige al panel.
+					$this->session->set_userdata('idusuario', $idUsuario);
+					$this->session->set_userdata('email', $email);
+					redirect('usuario/panel', 'refresh');
+				} else {
+					// Credenciales de inicio de sesión no válidas, redirige de vuelta al formulario con un mensaje de error.
+					$data['mensaje'] = 'Credenciales de inicio de sesión no válidas';
+					$this->load->view('loginform', $data);
+				}
+			} else {
+				// Credenciales de usuario no válidas, redirige de vuelta al formulario con un mensaje de error.
+				$data['mensaje'] = 'Credenciales de usuario no válidas';
+				$this->load->view('loginform', $data);
+			}
+		}
+	}
+
+
 
 }

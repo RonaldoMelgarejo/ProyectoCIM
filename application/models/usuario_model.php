@@ -30,12 +30,39 @@ class Usuario_model extends CI_Model {
 		$usuario_id = $this->db->insert_id();
 
 		// Insertar datos en la tabla 'login'
-		$data['login']['usuario_id'] = $usuario_id;
+		$data['login']['usuariosID'] = $usuario_id;
 		$this->db->insert('login', $data['login']);
 
 		return true; // Éxito en la inserción
 	}
 
 
+	//Opcion a validar usuario
+	// Método para validar las credenciales de usuario en la tabla 'usuarios'
+    public function validarUsuario($email, $password) {
+        $this->db->select('id, nombre, primerApellido, segundoApellido, email');
+        $this->db->where('email', $email);
+        $query = $this->db->get('usuarios');
+
+        if ($query->num_rows() == 1) {
+            return $query->row();
+        } else {
+            return false;
+        }
+    }
+
+    // Método para validar las credenciales de inicio de sesión en la tabla 'login'
+    public function validarLogin($usuariosID, $password) {
+        $this->db->select('id, nombreUsuario, rol');
+        $this->db->where('usuariosID', $usuariosID);
+        $this->db->where('password', $password); // Asegúrate de que esta sea la forma correcta de comparar contraseñas en tu base de datos
+        $query = $this->db->get('login');
+
+        if ($query->num_rows() == 1) {
+            return $query->row();
+        } else {
+            return false;
+        }
+    }
 	
 }

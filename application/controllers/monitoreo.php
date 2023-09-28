@@ -7,8 +7,8 @@ class Monitoreo extends CI_Controller {
 	//empieza con metodo
 	public function index()
 	{
-		//$lista=$this->estudiante_model->lista();   //almacena en una variable $lista el metodo lista() que esta en estudiante_model
-		//$data['estudiante']=$lista;		//$data es un array asociativo que puede almacenar muchos datos de muchas consultas como docente_model->lista2
+		$lista=$this->medicion_model->lista();   //almacena en una variable $lista el metodo lista() que esta en estudiante_model
+		$data['medicion']=$lista;		//$data es un array asociativo que puede almacenar muchos datos de muchas consultas como docente_model->lista2
 		
 		$this->load->view('inc_head'); //cargar cabecera
 		$this->load->view('inc_navbar'); //cargar barra lateral
@@ -20,10 +20,13 @@ class Monitoreo extends CI_Controller {
 
 	//Prueba para index Tables
 	public function datatables(){
+		$lista=$this->medicion_model->lista();   //almacena en una variable $lista el metodo lista() que esta en estudiante_model
+		$data['medicion']=$lista;		//$data es un array asociativo que puede almacenar muchos datos de muchas consultas como docente_model->lista2
+		
 		$this->load->view('inc_head'); //cargar cabecera
 		$this->load->view('inc_navbar'); //cargar barra lateral
 		$this->load->view('inc_sidebar'); //cargar nav
-		$this->load->view('tables'); //cargar la pagina
+		$this->load->view('tables', $data); //cargar la pagina
 		$this->load->view('inc_footer'); //cargar pie
 
 	}
