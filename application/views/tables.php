@@ -27,6 +27,7 @@
                             </select>
                         </div>
                     </div>
+                    <?php echo "Hola: ".$this->session->userdata('nombre'); ?>
                 </div>
             </div>
             <!-- ============================================================== -->
