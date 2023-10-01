@@ -56,4 +56,14 @@ class Medicion_model extends CI_Model {
         return $query->result();
     }
 
+	// En tu modelo medicion_model.php
+	public function obtenerDatosSensordht11()
+	{
+		// Realiza una consulta a la base de datos para obtener los datos de la tabla sensordht11
+		$query = $this->db->query("SELECT temperatura, humedad, fechaHoraMedición FROM sensordht11");
+
+		// Devuelve los resultados como un array de objetos
+		return $query->result();
+	}
+
 }

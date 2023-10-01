@@ -43,8 +43,8 @@ class Monitoreo extends CI_Controller {
 
 	//Prueba Morris js
 	public function morris(){
-		$this->load->model('Medicion_model');
-        $data['mediciones'] = $this->Medicion_model->obtener_mediciones();
+		$this->load->model('medicion_model');
+        $data['datos'] = $this->medicion_model->obtenerDatosSensordht11();
         
 		$this->load->view('inc_head'); //cargar cabecera
 		$this->load->view('inc_navbar'); //cargar barra lateral

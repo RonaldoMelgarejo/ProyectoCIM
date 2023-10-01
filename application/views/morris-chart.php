@@ -47,7 +47,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">Prueba</h4>
                                     <div>
-                                        <canvas id="myChart"></canvas>
+                                        <canvas id="grafico"></canvas>
                                         
                                     </div>
                             </div>

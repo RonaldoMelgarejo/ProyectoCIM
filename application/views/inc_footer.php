@@ -74,11 +74,12 @@
     <script src="<?php echo base_url(); ?>/assets/extra-libs/datatables.net-bs4/js/dataTables.responsive.min.js"></script>
     <script src="<?php echo base_url(); ?>/dist/js/pages/datatable/datatable-basic.init.js"></script>
 
-    <!-- Morris.js -->
+    <!-- Morris.js 
     <script src="<?php echo base_url(); ?>/assets/libs/raphael/raphael.min.js"></script>
     <script src="<?php echo base_url(); ?>/assets/libs/morris.js/morris.min.js"></script>
-    <script src="<?php echo base_url(); ?>/dist/js/pages/morris/morris-data.js"></script>
+    <script src="<?php echo base_url(); ?>/dist/js/pages/morris/morris-data.js"></script> -->
 
+    <!--
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
             const ctx = document.getElementById('myChart');
@@ -102,8 +103,62 @@
                 }
             });
             
-    </script>
+    </script> -->
 
+    <!-- En tu vista graficas.php -->
+    <!-- ... Código anterior ... -->
+
+    <script>
+        // Obtén los datos de PHP y conviértelos a un array JavaScript
+        var datos = <?php echo json_encode($datos); ?>;
+        
+        // Prepara los datos para el gráfico
+        var fechas = [];
+        var temperaturas = [];
+        var humedades = [];
+
+        for (var i = 0; i < datos.length; i++) {
+            // Formatea la fecha para mostrar solo la hora y los minutos (HH:mm)
+            var fecha = new Date(datos[i].fechaHoraMedición);
+            var horaMinutos = fecha.getHours() + ':' + (fecha.getMinutes() < 10 ? '0' : '') + fecha.getMinutes();
+            fechas.push(horaMinutos);
+            
+            temperaturas.push(datos[i].temperatura);
+            humedades.push(datos[i].humedad);
+        }
+
+        // Crea un contexto para el canvas
+        var ctx = document.getElementById('grafico').getContext('2d');
+
+        // Crea un gráfico de línea
+        var grafico = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: fechas, // Etiquetas en el eje X
+                datasets: [
+                    {
+                        label: 'Temperatura',
+                        data: temperaturas, // Datos de temperatura
+                        borderColor: 'rgba(255, 99, 132, 1)', // Color de la línea
+                        borderWidth: 2 // Ancho de la línea
+                    },
+                    {
+                        label: 'Humedad',
+                        data: humedades, // Datos de humedad
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
