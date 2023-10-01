@@ -8,12 +8,12 @@ class Monitoreo extends CI_Controller {
 	public function index()
 	{
 		$lista=$this->medicion_model->lista();   //almacena en una variable $lista el metodo lista() que esta en estudiante_model
-		$data['medicion']=$lista;		//$data es un array asociativo que puede almacenar muchos datos de muchas consultas como docente_model->lista2
+		$data['mediciones']=$lista;		//$data es un array asociativo que puede almacenar muchos datos de muchas consultas como docente_model->lista2
 		
 		$this->load->view('inc_head'); //cargar cabecera
 		$this->load->view('inc_navbar'); //cargar barra lateral
 		$this->load->view('inc_sidebar'); //cargar nav
-		$this->load->view('dashboard'); //cargar la pagina
+		$this->load->view('dashboard',$data); //cargar la pagina
 		//--$this->load->view('est_lista',$data); //cargar vista est_lista y se envia $data que debe ser dado el formato en la vista
 		$this->load->view('inc_footer'); //cargar pie
 	}
@@ -37,6 +37,19 @@ class Monitoreo extends CI_Controller {
 		$this->load->view('inc_navbar'); //cargar barra lateral
 		$this->load->view('inc_sidebar'); //cargar nav
 		$this->load->view('settingprofile'); //cargar la pagina
+		$this->load->view('inc_footer'); //cargar pie
+
+	}
+
+	//Prueba Morris js
+	public function morris(){
+		$this->load->model('Medicion_model');
+        $data['mediciones'] = $this->Medicion_model->obtener_mediciones();
+        
+		$this->load->view('inc_head'); //cargar cabecera
+		$this->load->view('inc_navbar'); //cargar barra lateral
+		$this->load->view('inc_sidebar'); //cargar nav
+		$this->load->view('morris-chart', $data); //cargar la pagina
 		$this->load->view('inc_footer'); //cargar pie
 
 	}
@@ -85,4 +98,6 @@ class Monitoreo extends CI_Controller {
 
 		redirect('estudiante/index','refresh');
 	}
+
+
 }

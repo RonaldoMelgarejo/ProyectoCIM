@@ -44,7 +44,43 @@
             <!-- ============================================================== -->
             <div class="container-fluid">
                 <!-- Pruebas de Visualizacion -->
+
                 <div class="row">
+                    <!-- column -->
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Product line Chart</h4>
+                                <ul class="list-inline text-end">
+                                    <li class="list-inline-item">
+                                        <h5><i class="fa fa-circle me-1 text-info"></i>iPhone</h5>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <h5><i class="fa fa-circle me-1 text-cyan"></i>iPod</h5>
+                                    </li>
+                                </ul>
+                                <div id="morris-area-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Gráfico de Sensores DHT11</h4>
+                                <div id="morris-area-chart-2">  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">

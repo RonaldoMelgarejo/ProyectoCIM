@@ -55,7 +55,7 @@
                                 aria-expanded="false"><i data-feather="bar-chart" class="feather-icon"></i><span
                                     class="hide-menu">Charts </span></a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
-                                <li class="sidebar-item"><a href="chart-morris.html" class="sidebar-link"><span
+                                <li class="sidebar-item"><a href="<?php echo base_url('index.php/monitoreo/morris'); ?>" class="sidebar-link"><span
                                             class="hide-menu"> Morris Chart
                                         </span></a>
                                 </li>

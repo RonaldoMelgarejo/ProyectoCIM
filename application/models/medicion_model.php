@@ -35,4 +35,25 @@ class Medicion_model extends CI_Model {
 		$this->db->where('idEstudiante',$idEstudiante);
 		$this->db->delete('estudiantes',$data);  // delete('nombreTablaBD','datos')
 	}
+
+	public function obtenerMediciones2() {
+        // Realiza una consulta para obtener los datos de la tabla sensordht11
+        $query = $this->db->get('sensordht11');
+
+        // Verifica si hay datos y los devuelve
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return array(); // Retorna un array vacío si no hay datos
+        }
+    }
+	// En medicion_model.php
+    public function obtener_mediciones() {
+        $this->db->select('temperatura, humedad, fechaHoraMedición');
+        $this->db->from('sensordht11'); // Reemplaza con el nombre de tu tabla
+        $this->db->order_by('fechaHoraMedición', 'asc'); // Ordena por fechaHoraMedicion ascendente
+        $query = $this->db->get();
+        return $query->result();
+    }
+
 }
