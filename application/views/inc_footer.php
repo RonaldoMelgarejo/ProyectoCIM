@@ -139,13 +139,13 @@
                     {
                         label: 'Temperatura',
                         data: temperaturas, // Datos de temperatura
-                        borderColor: 'rgba(255, 99, 132, 1)', // Color de la línea
+                        borderColor: 'rgba(95,118,232,255)', // Color de la línea
                         borderWidth: 2 // Ancho de la línea
                     },
                     {
                         label: 'Humedad',
                         data: humedades, // Datos de humedad
-                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderColor: 'rgba(1,202,241,255)',
                         borderWidth: 2
                     }
                 ]

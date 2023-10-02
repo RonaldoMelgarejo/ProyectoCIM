@@ -44,6 +44,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
 
+    <style>
+    /* Estilo para centrar el contenido en las celdas de la tabla */
+    .table td {
+        text-align: center;
+        vertical-align: middle;
+    }
+    .table th {
+        text-align: center;
+        vertical-align: middle;
+    }
+    </style>
 </head>
 
 <body>

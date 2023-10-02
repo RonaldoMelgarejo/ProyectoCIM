@@ -56,10 +56,11 @@
                                         <thead>
                                             <tr>
                                                 <th>Nro.</th>
-                                                <th>Humedad</th>
                                                 <th>Temperatura</th>
+                                                <th>Humedad</th>
                                                 <th>Fecha y Hora</th>
-                                                
+                                                <th>Eliminar</th>
+                                                <th>Deshabilitar</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -85,17 +86,27 @@
                                                 <?php
                                                     echo form_close();
                                                 ?>
-                                                </td>
+                                                </td>-->
                                                 <td>
                                                 <?php
-                                                    echo form_open_multipart('estudiante/eliminarbd');
+                                                    echo form_open_multipart('monitoreo/eliminarbd');
                                                 ?>
-                                                <input type="hidden" name="idEstudiante" value="<?php echo $row->idEstudiante; ?>">
+                                                <input type="hidden" name="idSensordht11" value="<?php echo $row->id; ?>">
                                                 <button type="submit" class="btn btn-danger btn-xs">Eliminar</button>
                                                 <?php
                                                     echo form_close();
                                                 ?>
-                                                </td>-->
+                                                </td>
+                                                <td>
+                                                    <?php
+                                                        echo form_open_multipart('monitoreo/deshabilitarbd');
+                                                    ?>
+                                                        <input type="hidden" name="idSensordht11" value="<?php echo $row->id; ?>">
+                                                        <button type="submit" class="btn btn-warning">Deshabilitar</button>
+                                                    <?php
+                                                    echo form_close();
+                                                    ?>
+                                                </td>
                                             </tr>
 
                                             <?php
@@ -106,9 +117,11 @@
                                         <tfoot>
                                             <tr>
                                                 <th>Nro.</th>
-                                                <th>Humedad</th>
                                                 <th>Temperatura</th>
+                                                <th>Humedad</th>
                                                 <th>Fecha y Hora</th>
+                                                <th>Eliminar</th>
+                                                <th>Deshabilitar</th>
                                             </tr>
                                         </tfoot>
                                     </table>

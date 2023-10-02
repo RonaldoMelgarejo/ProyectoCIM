@@ -93,11 +93,17 @@ class Monitoreo extends CI_Controller {
 	}
 
 	public function eliminarbd(){
-		$idEstudiante=$_POST['idEstudiante'];
-		$this->estudiante_model->eliminarEstudiante($idEstudiante); //enviamos al delete esos datos
+		$id=$_POST['id'];
+		$this->medicion_model->eliminarMedicion($id); //enviamos al delete esos datos
 
-		redirect('estudiante/index','refresh');
+		redirect('monitoreo/datatables','refresh');
 	}
 
-
+	public function deshabilitarbd()
+    {
+        $id=$_POST['id'];
+        $data['estado']='0';
+        $this->medicion_model->modificarmedicion($id,$data);
+        redirect('monitoreo/datatables','refresh');
+    }
 }

@@ -21,17 +21,17 @@ class Medicion_model extends CI_Model {
 		return $this->db->get();  //manda los datos a un controlador a modificar() y se lo llamara desde estudiante.php
 	}
 	
-	public function modificarEstudiante($idEstudiante,$data)
+	public function modificarMedicion($id,$data)
 	{
-		$this->db->where('idEstudiante',$idEstudiante);
-		$this->db->update('estudiantes',$data);  // update('nombreTablaBD','datos')
+		$this->db->where('id',$id);
+		$this->db->update('sensordht11',$data);  // update('nombreTablaBD','datos')
 	}
 
 	public function agregarEstudiante($data){
 		$this->db->insert('estudiantes',$data); // insert en ('nombreTablaBD','datos')
 	}
 
-	public function eliminarEstudiante($idEstudiante){    //hard delete
+	public function eliminarMedicion($idEstudiante){    //hard delete
 		$this->db->where('idEstudiante',$idEstudiante);
 		$this->db->delete('estudiantes',$data);  // delete('nombreTablaBD','datos')
 	}
