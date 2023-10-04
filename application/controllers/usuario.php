@@ -82,7 +82,7 @@ class Usuario extends CI_Controller {
 		$this->load->view('registerform'); //cargar vista loginform y se envia $data que debe ser dado el formato en la vista
 	}
 
-	public function guardarusuario2()
+	public function guardarusuarioF()
 	{
 		// Recupera los datos del formulario
 		$data = array(
@@ -95,6 +95,57 @@ class Usuario extends CI_Controller {
 			'login' => array(
 				'password' => md5($this->input->post('password'))
 			)
+		);
+
+		// Llama al modelo para insertar los datos en ambas tablas
+		$this->load->model('usuario_model'); // Asegúrate de haber cargado el modelo
+		$resultado = $this->usuario_model->insertar_usuario($data);
+
+		if ($resultado) {
+			// Éxito en la inserción, redirige a una página de éxito o muestra un mensaje
+			redirect('usuario/exito_registro');
+		} else {
+			// Error en la inserción, muestra un mensaje de error
+			redirect('usuario/error_registro');
+		}
+	}
+
+	//Opcion para crear nombre de usuario
+	public function guardarusuario2()
+	{
+		// Recupera los datos del formulario
+		$nombre = $this->input->post('name');
+		$primerApellido = $this->input->post('firstName');
+		$segundoApellido = $this->input->post('lastName');
+		$email = $this->input->post('email');
+		$password = md5($this->input->post('password'));
+
+		// Calcula las iniciales combinadas
+		$inicialesNombre = substr($nombre, 0, 1);
+		$inicialesPrimerApellido = substr($primerApellido, 0, 1);
+		$inicialesSegundoApellido = substr($segundoApellido, 0, 1);
+
+		$inicialesArray = array($inicialesNombre, $inicialesPrimerApellido, $inicialesSegundoApellido);
+		$inicialesCombinadas = implode('', $inicialesArray);
+
+		// Obtiene el año actual
+		$anioActual = date('Y');
+
+		// Concatena las iniciales con el año actual para formar el nombre de usuario
+		$nombreUsuario = $inicialesCombinadas . $anioActual;
+
+		// Crea un arreglo de datos para insertar en la base de datos
+		$data = array(
+			'usuario' => array(
+				'nombre' => $nombre,
+				'primerApellido' => $primerApellido,
+				'segundoApellido' => $segundoApellido,
+				'email' => $email,
+			),
+			'login' => array(
+				'nombreUsuario' => $nombreUsuario,
+				'password' => $password,
+			),
 		);
 
 		// Llama al modelo para insertar los datos en ambas tablas
