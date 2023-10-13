@@ -44,6 +44,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
 
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="jquery.knob.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="jquery.knob.css">
+    
+    <script>
+    $(function() {
+        $("#luminosidadKnob").knob({
+            'min': 0,
+            'max': 100, // Ajusta según el rango de lectura del LDR
+            'readOnly': true
+        });
+
+        // Configura el valor inicial del Knob
+        var valorInicial = 500; // Reemplaza con el valor inicial deseado
+        $("#luminosidadKnob").val(valorInicial).trigger('change');
+    });
+    </script>
+
     <style>
     /* Estilo para centrar el contenido en las celdas de la tabla */
     .table td {

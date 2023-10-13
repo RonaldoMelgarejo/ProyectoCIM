@@ -44,8 +44,18 @@ class Monitoreo extends CI_Controller {
 	//Prueba Morris js
 	public function morris(){
 		$this->load->model('medicion_model');
-        $data['datos'] = $this->medicion_model->obtenerDatosSensordht11();
-        
+        // Obtén los datos del sensor DHT11
+		$datosDHT11 = $this->medicion_model->obtenerDatosSensordht11Real();
+
+		// Obtén el valor de luminosidad desde tu modelo
+		$valorLuminosidad = $this->medicion_model->obtenerLuminosidadActual();
+
+		// Carga la vista 'morris-chart' y pasa los datos
+		$data = array(
+			'datos2' => $datosDHT11,
+			'valorLuminosidad' => $valorLuminosidad
+		);
+
 		$this->load->view('inc_head'); //cargar cabecera
 		$this->load->view('inc_navbar'); //cargar barra lateral
 		$this->load->view('inc_sidebar'); //cargar nav
@@ -106,4 +116,36 @@ class Monitoreo extends CI_Controller {
         $this->medicion_model->modificarmedicion($id,$data);
         redirect('monitoreo/datatables','refresh');
     }
+
+	// En tu controlador monitoreo.php
+	public function obtener_datos_actualizados()
+	{
+		// Cargar el modelo para obtener datos actualizados
+		$this->load->model('medicion_model');
+
+		// Obtener datos actualizados de la tabla sensordht11 desde el modelo
+		$datos = $this->medicion_model->obtenerDatosSensordht11Real();
+
+		// Preparar los datos para enviarlos como JSON
+		$fechas = [];
+		$temperaturas = [];
+		$humedades = [];
+
+		foreach ($datos as $dato) {
+			$fechas[] = date('H:i', strtotime($dato->fechaHoraMedición));
+			$temperaturas[] = $dato->temperatura;
+			$humedades[] = $dato->humedad;
+		}
+
+		$datos_actualizados = [
+			'fechas' => $fechas,
+			'temperaturas' => $temperaturas,
+			'humedades' => $humedades,
+		];
+
+		// Devolver los datos en formato JSON
+		header('Content-Type: application/json');
+		echo json_encode($datos_actualizados);
+	}
+
 }

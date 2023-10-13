@@ -63,11 +63,13 @@
 
     <!-- Knob -->
     <script src="<?php echo base_url(); ?>/assets/extra-libs/knob/jquery.knob.min.js"></script>
+    <!--
     <script>
         $(function () {
             $('[data-plugin="knob"]').knob();
         });
     </script>
+    -->
 
     <!-- DataTables -->
     <script src="<?php echo base_url(); ?>/assets/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -107,7 +109,7 @@
 
     <!-- En tu vista graficas.php -->
     <!-- ... Código anterior ... -->
-
+<!--
     <script>
         // Obtén los datos de PHP y conviértelos a un array JavaScript
         var datos = <?php echo json_encode($datos); ?>;
@@ -159,6 +161,78 @@
             }
         });
     </script>
+    -->
+    <script>
+        // Obtén los datos de PHP y conviértelos a un array JavaScript
+        var datos2 = <?php echo json_encode($datos2); ?>;
+        
+        // Prepara los datos para el gráfico
+        var fechas = [];
+        var temperaturas = [];
+        var humedades = [];
+
+        for (var i = 0; i < datos2.length; i++) {
+            // Formatea la fecha para mostrar solo la hora y los minutos (HH:mm)
+            var fecha = new Date(datos2[i].fechaHoraMedicion);
+            var horaMinutos = fecha.getHours() + ':' + (fecha.getMinutes() < 10 ? '0' : '') + fecha.getMinutes();
+            fechas.push(horaMinutos);
+            
+            temperaturas.push(datos2[i].temperatura);
+            humedades.push(datos2[i].humedad);
+        }
+
+        //-------------===========/
+        /*
+        $(function() {
+            $("#luminosidadKnob").knob({
+                'min': 0,
+                'max': 100, // Ajusta según el rango de lectura del LDR
+                'readOnly': true
+            });
+        });*/
+
+        // Actualiza el valor del Knob con el valor del LDR (debes adaptar esto a tu configuración)
+        function actualizarKnob(valorLDR) {
+            $("#luminosidadKnob").val(valorLDR).trigger('change');
+        }
+
+        //--------------========//
+
+        // Crea un contexto para el canvas
+        var ctx = document.getElementById('graficoSensor').getContext('2d');
+
+        // Crea un gráfico de línea
+        var graficoSensor = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: fechas, // Etiquetas en el eje X
+                datasets: [
+                    {
+                        label: 'Temperatura',
+                        data: temperaturas, // Datos de temperatura
+                        borderColor: 'rgba(95,118,232,255)', // Color de la línea
+                        borderWidth: 2 // Ancho de la línea
+                    },
+                    {
+                        label: 'Humedad',
+                        data: humedades, // Datos de humedad
+                        borderColor: 'rgba(1,202,241,255)',
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+        
+    </script>
+   
+
 </body>
 
 </html>

@@ -66,4 +66,38 @@ class Medicion_model extends CI_Model {
 		return $query->result();
 	}
 
+	// En tu modelo medicion_model.php
+	public function obtenerDatosSensordht11Real()
+	{
+		// Realiza una consulta a la base de datos para obtener los datos de la tabla sensordht11
+		$query = $this->db->query("SELECT temperatura, humedad, fechaHoraMedicion FROM sensorp");
+
+		// Devuelve los resultados como un array de objetos
+		return $query->result();
+	}
+
+	public function guardar_luminosidad($luminosidad) {
+        $data = array(
+            'luminosidad' => $luminosidad
+        );
+        
+        $this->db->insert('lecturas_luminosidad', $data);
+    }
+	
+	public function obtenerLuminosidadActual() {
+		$this->db->select('luminosidad');
+		$this->db->from('lecturas_luminosidad');
+		$this->db->order_by('id', 'desc'); // Obtén la última lectura registrada
+		$this->db->limit(1); // Limita el resultado a una fila
+	
+		$query = $this->db->get();
+	
+		if ($query->num_rows() > 0) {
+			$row = $query->row();
+			return $row->luminosidad;
+		}
+	
+		return 0; // Si no hay datos en la base de datos, puedes devolver un valor predeterminado
+	}
+	
 }

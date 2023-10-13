@@ -42,106 +42,37 @@
 
                 <div class="row">
                     <!-- column -->
+                    <div class="col-lg-4 text-center">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Luminosidad</h4>
+                                    <div >
+                                        <!-- <canvas id="grafico1"></canvas>-->
+                                        <input id="luminosidadKnob"  data-displayInput=false>
+
+                                    </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- column -->
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Prueba</h4>
+                                <h4 class="card-title">Sensor DHT11</h4>
                                     <div>
-                                        <canvas id="grafico"></canvas>
+                                        <canvas id="graficoSensor"></canvas>
                                         
                                     </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
 
-                <div class="row">
-                    <!-- column -->
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Product line Chart</h4>
-                                <ul class="list-inline text-end">
-                                    <li class="list-inline-item">
-                                        <h5><i class="fa fa-circle me-1 text-info"></i>iPhone</h5>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <h5><i class="fa fa-circle me-1 text-cyan"></i>iPod</h5>
-                                    </li>
-                                </ul>
-                                <div id="morris-area-chart"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- column -->
-                    <!-- column -->
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Site visit Chart</h4>
-                                <ul class="list-inline text-end">
-                                    <li class="list-inline-item">
-                                        <h5><i class="fa fa-circle me-1 text-info"></i>Site A View</h5>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <h5><i class="fa fa-circle me-1 text-cyan"></i>Site B View</h5>
-                                    </li>
-                                </ul>
-                                <div id="morris-area-chart2"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- column -->
-                    <!-- column -->
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Line Chart</h4>
-                                <div id="morris-line-chart"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- column -->
-                    <!-- column -->
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Donute Chart</h4>
-                                <div id="morris-donut-chart"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- column -->
-                    <!-- column -->
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Bar Chart</h4>
-                                <div id="morris-bar-chart"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- column -->
-                    <!-- column -->
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Extra Area Chart</h4>
-                                <ul class="list-inline text-center mt-5">
-                                    <li class="list-inline-item">
-                                        <h5><i class="fa fa-circle me-1 text-cyan"></i>Site A</h5>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <h5><i class="fa fa-circle me-1 text-info"></i>Site B</h5>
-                                    </li>
-                                </ul>
-                                <div id="extra-area-chart"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- column -->
-                </div>
+
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->

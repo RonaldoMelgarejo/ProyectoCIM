@@ -11370,7 +11370,7 @@
        *      } );
        *    } );
        */
-      sSearch: "Search:",
+      sSearch: "Buscar:",
 
       /**
        * Assign a `placeholder` attribute to the search `input` element

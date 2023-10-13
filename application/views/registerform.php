@@ -68,7 +68,7 @@
                                     <div class="form-group mb-3">
                                         <input name="email" id="email" class="form-control" type="email" placeholder="Email">
                                     </div>
-                                </div>
+                                </div><!--
                                 <div class="col-lg-12">
                                     <div class="form-group mb-3">
                                         <input name="password" id="password" class="form-control" type="password" placeholder="Contraseña">
@@ -78,7 +78,7 @@
                                     <div class="form-group mb-3">
                                         <input name="confirm_password" id="confirm_password" class="form-control" type="password" placeholder="Confirmar Contraseña">
                                     </div>
-                                </div>
+                                </div>-->
                                 <div class="col-lg-12 text-center">
                                     <button type="submit" class="btn w-100 btn-dark">Registrarse</button>
                                 </div>
